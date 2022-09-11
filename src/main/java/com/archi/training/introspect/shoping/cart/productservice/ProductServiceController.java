@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/shoppingcart/product")
+@RequestMapping("/")
 public class ProductServiceController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductServiceController.class);
@@ -24,7 +24,7 @@ public class ProductServiceController {
     private ProductServiceProvider productServiceProvider;
 
 
-    @GetMapping(value = "/getAllProducts", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "getAllProducts", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Object> getAllProducts() {
          LOGGER.info("[getAllProducts] [START] Request received to get all product details");
          List<Product> productList = productServiceProvider.getAllProducts();
@@ -37,7 +37,7 @@ public class ProductServiceController {
          }
     }
 
-    @GetMapping(value = "/getProductByCode/{productCode}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "getProductByCode/{productCode}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Object> getProductByCode(final @PathVariable("productCode") String productCode) {
         LOGGER.info("[getProductByCode][START] Request received to get product by code {}", productCode);
         try {
