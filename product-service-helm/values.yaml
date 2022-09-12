@@ -88,8 +88,8 @@ configMap:
 livenessProbe:
   path: /shoppingcart/product/actuator/health/liveness
   enabled: true
-  initialDelaySeconds: 30
-  periodSeconds: 15
+  initialDelaySeconds: 60
+  periodSeconds: 30
   timeoutSeconds: 5
   failureThreshold: 5
   successThreshold: 1
@@ -97,8 +97,8 @@ livenessProbe:
 readinessProbe:
   path: /shoppingcart/product/actuator/health/readiness
   enabled: true
-  initialDelaySeconds: 20
-  periodSeconds: 10
+  initialDelaySeconds: 45
+  periodSeconds: 15
   timeoutSeconds: 5
   failureThreshold: 5
   successThreshold: 1
