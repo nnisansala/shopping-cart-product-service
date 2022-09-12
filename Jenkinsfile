@@ -36,7 +36,7 @@ node{
 
 
 	stage ('Docker Push') {
-		withCredentials([string(credentialsId: 'neranji-docker-hub-pwd', variable: '')]) {
+		withCredentials([string(credentialsId: 'neranji-docker-hub-pwd', variable: 'dockerHubpwd')]) {
 			sh 'echo ${dockerHubpwd} | sudo docker login -u neranji --password-stdin'
             sh 'sudo docker push neranji/shopping-cart-product-service:1.0.0'
         }
