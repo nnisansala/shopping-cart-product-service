@@ -1,24 +1,17 @@
 node{
-	environment{
-		serviceName = 'shopping-cart-product-service'
-        releaseVersion = '1.0.0'
-        registryUsername = 'neranji'
-        registryPassword = 'Kgnn@2281'
-	}
-	
-	stage ("Git Clone"){
+	stage ("Git Clone") {
         git url:'https://github.com/nnisansala/shopping-cart-product-service.git', branch: "develop"
 	}
 
-	stage ("Compile"){
+	stage ("Compile") {
 		sh 'mvn compile'
 	}
 
-	stage ("Unit Test"){
+	stage ("Unit Test") {
 		sh 'mvn test'
 	}
 
-    stage ("Sonar"){
+    stage ("Sonar") {
 		sh 'mvn sonar:sonar \
 		  -Dsonar.projectKey=shopping-cart-product-service \
 		  -Dsonar.host.url=http://18.212.254.64:9000 \
@@ -30,7 +23,7 @@ node{
 	}
 
 
-	stage ("Build Image"){
+	stage ("Build Image") {
 		sh 'sudo docker build -t neranji/shopping-cart-product-service:1.0.0 .'
 	}
 
