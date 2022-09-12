@@ -46,7 +46,7 @@ ingress:
      kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: '*.us-east-1.elb.amazonaws.com'
+    - host: 'shopping-cart-product-service'
       paths: ['/shoppingcart/product']
   tls: []
   #  - secretName: chart-example-tls
